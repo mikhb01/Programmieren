@@ -99,8 +99,6 @@
 
 # ################
 
-<<<<<<< HEAD
-=======
 # #Challenge 4
 # favClass1 = "Physics"
 # favClass2 = "Math"
@@ -109,4 +107,4 @@
 
 #Challenge 5 
 print(72 % 7)
->>>>>>> main
+
