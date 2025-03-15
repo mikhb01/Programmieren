@@ -49,3 +49,7 @@
 # favClass1 = "Physics"
 # favClass2 = "Math"
 # print(f"My favourite classes were {favClass1} and {favClass2}.")
+
+
+#Challenge 5 
+print(72 % 7)
