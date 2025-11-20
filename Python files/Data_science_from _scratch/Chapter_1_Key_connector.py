@@ -125,9 +125,9 @@ def friends_of_friends_id_bad(user):
 
 # print(friends_of_friends_id_bad(users[0]))
 
-print([friend["id"] for friend in users[0]["friends"]]) # [1, 2]
-print([friend["id"] for friend in users[1]["friends"]]) # [0, 2, 3]
-print([friend["id"] for friend in users[2]["friends"]]) # [0, 1, 3]
+# print([friend["id"] for friend in users[0]["friends"]]) # [1, 2]
+# print([friend["id"] for friend in users[1]["friends"]]) # [0, 2, 3]
+# print([friend["id"] for friend in users[2]["friends"]]) # [0, 1, 3]
 
 def not_the_same(user, other_user):
      """Two users are not the same if they have different ids"""
@@ -146,7 +146,7 @@ def friends_of_friends_ids(user):
                     if not_the_same(user, foaf)     # who aren't me
                     and not_friends(user, foaf))    # and are't my friends
 
-print(friends_of_friends_ids(users[3]))             # Counter({0: 2, 5: 1})
+# print(friends_of_friends_ids(users[3]))             # Counter({0: 2, 5: 1})
 
 def data_scientists_who_like(target_interest):
      return(user_id 
@@ -171,7 +171,7 @@ interests_by_user_id = defaultdict(list)
 for user_id, interest in interests:
      interests_by_user_id[user_id].append(interest)
 
-print(interests_by_user_id[0])
+# print(interests_by_user_id[0])
 
 def most_common_interests_with(user):
      return Counter(interests_by_user_id 
@@ -228,7 +228,83 @@ for salary, tenure in salaries_and_tenures:
 # keys are tenure buckets, values is average salaries for that bucket
 average_salary_by_bucket = {
      tenure_bucket : sum(salaries) / len(salaries)
-     for tenure, salaries in salary_by_tenure_bucket.items()
+     for tenure_bucket, salaries in salary_by_tenure_bucket.items()
 }
 
-print(average_salary_by_bucket)
+# print(average_salary_by_bucket)
+
+##################################
+# Paid Accounts
+##################################
+
+def predict_paid_or_unpaid(years_of_experience):
+     if years_of_experience < 3.0:
+          return "paid"
+     elif years_of_experience < 8.5:
+          return "unpaid"
+     else:
+          return "paid"
+
+##################################
+# Topics of interest
+##################################
+
+interests = [
+     (0, "Hadoop"), 
+     (0, "Big Data"), 
+     (0, "HBase"), 
+     (0, "Java"),
+     (0, "Spark"), 
+     (0, "Storm"), 
+     (0, "Cassandra"),
+     (1, "NoSQL"), 
+     (1, "MongoDB"), 
+     (1, "Cassandra"), 
+     (1, "HBase"),
+     (1, "Postgres"), 
+     (2, "Python"), 
+     (2, "scikit-learn"), 
+     (2, "scipy"),
+     (2, "numpy"), 
+     (2, "statsmodels"), 
+     (2, "pandas"), 
+     (3, "R"), 
+     (3, "Python"),
+     (3, "statistics"), 
+     (3, "regression"), 
+     (3, "probability"),
+     (4, "machine learning"), 
+     (4, "regression"), 
+     (4, "decision trees"),
+     (4, "libsvm"), 
+     (5, "Python"), 
+     (5, "R"), 
+     (5, "Java"), 
+     (5, "C++"),
+     (5, "Haskell"), 
+     (5, "programming languages"), 
+     (6, "statistics"),
+     (6, "probability"), 
+     (6, "mathematics"), 
+     (6, "theory"),
+     (7, "machine learning"), 
+     (7, "scikit-learn"), 
+     (7, "Mahout"),
+     (7, "neural networks"), 
+     (8, "neural networks"), 
+     (8, "deep learning"),
+     (8, "Big Data"), 
+     (8, "artificial intelligence"), 
+     (9, "Hadoop"),
+     (9, "Java"), 
+     (9, "MapReduce"), 
+     (9, "Big Data")
+]
+
+words_and_count = Counter(word
+                          for user, interest in interests
+                          for word in interest.lower().split())
+
+for word, count in words_and_count.most_common():
+     if count > 1:
+          print (word, count)
