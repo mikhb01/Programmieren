@@ -19,4 +19,6 @@ eggs2 = int("2" + "4")
 spam2 = "Jeder Tag hat " + str(eggs2 + 12) + " Stunden"
 print(spam2)
 
+print(type(spam2))
+
 # weiter mit seite 51

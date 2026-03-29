@@ -1,0 +1,1 @@
+spam = input("Ein Hinweisetext")
