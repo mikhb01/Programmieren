@@ -2,7 +2,17 @@
 eingabe = "j"
 while eingabe == "j":
     preis = input("Gib den Preis ein: ")
-    rabatt_in_prozent = input("Rabatt in Prozent(%): ")
+    tag = input("Welcher Tag ist heute: ")
+    match tag:
+        case "Samstag":
+            rabatt_in_prozent = 5
+        case "Sonntag":
+            rabatt_in_prozent = 10
+        case "Montag" | "Dienstag":
+            rabatt_in_prozent = 2
+        case _:
+            rabatt_in_prozent = 0
+    print("Rabatt ist heute: ", rabatt_in_prozent, "%")
 
     preis = float(preis)
     rabatt_in_prozent = float(rabatt_in_prozent)
@@ -28,4 +38,4 @@ print("Das Programm wurde beendet.")
 # print(type(zahlung))'
 
 
-# weiter auf Seite 72
+# Kapitel 2 durch
