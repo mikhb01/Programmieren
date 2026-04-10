@@ -1,4 +1,3 @@
-# Rabatt 7%
 eingabe = "j"
 while eingabe == "j":
     preis = input("Gib den Preis ein: ")
